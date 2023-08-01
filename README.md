@@ -134,10 +134,10 @@ You can deploy this project using:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **Mark Tasks as Pending**
-- [ ] **Mark Tasks as Blocked**
-- [ ] **Unmark Pending Tasks**
-- [ ] **Unblock Tasks**
+- [ ] **Display Score Statistics**
+- [ ] **Register VIP Players**
+- [ ] **Add Ticketing/Reservations**
+- [ ] **Schedule Matches**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -159,7 +159,7 @@ Contributions, issues, and feature requests are welcome!
 <!-- ACKNOWLEDGEMENTS -->
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Special acknowledgement to [@NoerGitKat](https://github.com/NoerGitKat) and [@microverseinc](https://github.com/microverseinc)
+> Special acknowledgement to [@microverseinc](https://github.com/microverseinc)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,7 +172,7 @@ Contributions, issues, and feature requests are welcome!
 
 - **What new features should be expected in the next release of the project?**
 
-  - I am currently working on adding **Mark Tasks as Pending**, **Mark Tasks as Blocked**, and **Unmark Pending Tasks**, **Unblock Tasks**.
+  - I am currently working on adding **Display Score Statistics**, **Register VIP Players**, and **Add Ticketing/Reservations**, **Schedule Matches**.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
