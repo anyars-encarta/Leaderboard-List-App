@@ -5,5 +5,9 @@
   padding: 0;
   box-sizing: border-box;
   background-color: #f4f3f4;
-  font-family: 'Comic Sans MS';
+  font-family: 'Comic Sans MS', sans-serif;
+}
+
+.remove-btn {
+  display: none;
 }

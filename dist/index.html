@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard List App</title>
+  <link rel="stylesheet" href="./style.css">
+<script defer src="bundle.js"></script></head>
+<body class="body">
+  <span id="date-time">date-time goes here</span>
+  <h1>Leaderboard</h1>
+
+  <div class="list-score-section">
+    <div class="list-heading">
+      <h2>Recent Scores</h2>
+      <span>Refresh</span>
+    </div>
+    
+    <ul id="score-list">
+      <!-- Scores gos here -->
+    </ul>
+  </div>
+
+  <div class="add-score-section">
+    <h2>Add your score</h2>
+    <form action="">
+      <label for="name" hidden>Name:</label>
+      <input type="text" id="name" placeholder="Your name" />
+      <label for="score" hidden>Score:</label>
+      <input type="text" id="score" placeholder="Your score" />
+      <button type="submit" id="add-btn" class="add-btn">Submit</button>
+    </form>
+  </div>
+  <span id="message"></span>
+</body>
+<!-- <script src="./index.js" type="module"></script> -->
+</html>
