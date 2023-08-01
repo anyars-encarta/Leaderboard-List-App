@@ -1,0 +1,114 @@
+body {
+  margin: 0 auto;
+  width: 70%;
+  box-sizing: border-box;
+}
+
+.body,
+input,
+.add-btn {
+  font-family: 'Comic Sans MS', sans-serif;
+}
+
+.remove-btn {
+  display: none;
+}
+
+#date-time {
+  float: right;
+  font-size: 25px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.main-section,
+.list-heading,
+form {
+  display: flex;
+}
+
+.main-section {
+  justify-content: center;
+  margin: 0 50px 0 50px;
+  gap: 50px;
+}
+
+.list-score-section,
+.add-score-section {
+  width: 600px;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+.list-heading {
+  align-items: center;
+  justify-content: space-between;
+}
+
+form {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.list-heading span,
+.add-btn,
+#score-list {
+  border: 1px solid black;
+}
+
+#add-btn {
+  align-self: flex-end;
+}
+
+.list-heading span,
+.add-btn {
+  font-size: 18px;
+  padding: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 4px 4px 0 rgb(2, 2, 2);
+}
+
+.list-heading h2 {
+  margin-right: 40px;
+}
+
+#score-list {
+  list-style-type: none;
+  font-size: 20px;
+  padding: 0;
+}
+
+li,
+.add-btn {
+  font-size: 30px;
+}
+
+li:nth-child(odd) {
+  background-color: #f4f2f2;
+}
+
+#score-list li {
+  padding: 0 0 0 5px;
+}
+
+.add-score-section h2 {
+  margin-bottom: 50px;
+}
+
+#message,
+input {
+  font-size: 20px;
+}
+
+input {
+  padding: 10px;
+}
+
+.add-btn {
+  width: 120px;
+}
