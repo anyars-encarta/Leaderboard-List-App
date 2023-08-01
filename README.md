@@ -74,7 +74,7 @@
 
 LIVE DEMO
 
-> Visit the [Live](https://anyars-encarta.github.io/To-do-list/dist/) page of the Project.
+> Visit the [Live](https://anyars-encarta.github.io/Leaderboard-List-App/dist/) page of the Project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
