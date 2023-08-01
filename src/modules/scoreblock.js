@@ -18,34 +18,33 @@ const scoreLoad = () => {
         }
         // Generate new unique ID for score
         const id = Scores.counterAutoIncreatmentId();
-        // Add book to collection
+        // Add score to list
         scoreLists.push({ id, name, score });
   
-        // Save books to local storage
+        // Save scores to local storage
         Scores.saveScores();
   
         // Clear input fields
         Scores.clearInputFields();
         // Display success message
         Scores.showsuccessMessage('Score added successfully!');
-        // Display book in list
+        // Display score in list
         Scores.renderScores(id, name, score);
       }
   
-      static isEmptyField(name, score) {
-        return !name || !score;
+      static isEmptyField(nameText, scoreText) {
+        return !nameText || !scoreText;
       }
   
-      static isDuplicate(name, score) {
-        return scoreLists.some((score) => score.name === name && score.score === score);
+      static isDuplicate(nameText, scoreText) {
+        return scoreLists.some((score) => score.name === nameText && score.score === scoreText);
       }
   
       static removeScore(id) {
-      // Remove book from collection
         scoreLists = scoreLists.filter((score) => score.id !== id);
-        // Save books to local storage
+        // Save scores to local storage
         Scores.saveScores();
-        // Remove book from the list
+        // Remove score from the list
         const scoreElement = document.getElementById(`score-${id}`);
         if (scoreElement) {
           scoreElement.remove();
@@ -55,11 +54,11 @@ const scoreLoad = () => {
       }
   
       static renderScores(id, name, score) {
-      // Create list of awesome book
+      // Create list of Scores
         const scoreElement = document.createElement('li');
         scoreElement.setAttribute('id', `score-${id}`);
-        scoreElement.textContent = `"${name}": ${score}`;
-        // Create remove button for book
+        scoreElement.textContent = `${name}: ${score}`;
+        // Create remove button for list
         const removeButton = document.createElement('button');
         removeButton.setAttribute('class', 'remove-btn');
         removeButton.textContent = 'Remove';
@@ -68,7 +67,7 @@ const scoreLoad = () => {
           Scores.showsuccessMessage('Score removed successfully!');
         });
         scoreElement.appendChild(removeButton);
-        // Add book to list
+        // Add score to list
         scoresListDisplay.appendChild(scoreElement);
       }
   
@@ -132,12 +131,14 @@ const scoreLoad = () => {
       const score = scoreMark.value.trim();
       if (name && score) {
         Scores.addScore(name, score);
+      } else {
+        Scores.showsuccessMessage('Please fill in both the name and the score fields.');
       }
     });
   
-    // Load books from local storage and render it on the page
+    // Load scores from local storage and render it on the page
     Scores.loadScores().forEach((score) => {
-      // Display book in list
+      // Display score in list
       Scores.renderScores(score.id, score.name, score.score);
     });
 };

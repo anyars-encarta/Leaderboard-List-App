@@ -1,3 +1,4 @@
+import './style.css';
 import myDateTime from './modules/date-time.js';
 import scoreLoad from './modules/scoreblock.js';
 
