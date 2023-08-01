@@ -4,27 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body class="body">
-  <div class="container" id="to-do">
-    <section id="date-time"></section>
-    <h1 class="header">
-      Today's To Do
-      <button class="btn"><span class="fa fa-refresh"></span></button>
-    </h1>
-  
-    <div class="input-container">
-      <input class="addtasks" type="text" id="new" placeholder="Add to your list...">
-      <span class="btn fa fa-plus" id="add-btn"></span>
-    </div>
+  <span id="date-time">date-time goes here</span>
+  <h1>Leaderboard</h1>
 
-    <ul class="todo-list" id="list">
-      <!-- Task Items go here -->
-    </ul>
+  <div class="list-score-section">
+    <div class="list-heading">
+      <h2>Recent Scores</h2>
+      <span>Refresh</span>
+    </div>
     
-    <button class="clear-button" id="clear">Clear all completed</button>
-    <span id="message">Something</span>
+    <ul id="score-list"></ul>
   </div>
+
+  <div class="add-score-section">
+    <h2>Add your score</h2>
+    <form action="">
+      <label for="name" hidden>Name:</label>
+      <input type="text" id="name" placeholder="Your name" />
+      <label for="score" hidden>Score:</label>
+      <input type="text" id="score" placeholder="Your score" />
+      <button type="submit" id="add-btn" class="add-btn">Submit</button>
+    </form>
+  </div>
+  <span id="message"></span>
 </body>
+<script src="./index.js"></script>
 </html>
