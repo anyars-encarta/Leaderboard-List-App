@@ -1,7 +1,8 @@
 // Helper function to handle API errors
-const handleApiError = (error) => {
+const handleApiError = () => {
+  throw new Error('error!');
   // Handle API request error
-  console.error('An error occurred:', error);
+  // console.error('An error occurred:', error);
 };
 
 export const getGameId = () => localStorage.getItem('gameId');
@@ -30,21 +31,22 @@ const makeApiRequest = async (url, method, body) => {
     const contentType = response.headers.get('content-type');
     if (contentType && contentType.indexOf('application/json') !== -1) {
       // Parse the JSON and return the response data
-      return response.json(); 
-    } else {
-      // Return an empty object if the response doesn't have JSON data
-      return {}; 
+      return response.json();
     }
+    // Return an empty object if the response doesn't have JSON data
+    return {};
   } catch (error) {
     handleApiError(error);
     throw error;
   }
 };
 
-
 export const createGame = async (gameName) => {
   try {
-    const gameId = getGameId();
+    let gameId = getGameId();
+
+    // Use a fixed game ID if it exists in local storage
+    const fixedGameId = 'JhRzPkDH3S1gPDwcnOFS';
 
     if (!gameId) {
       const response = await makeApiRequest(
@@ -52,62 +54,75 @@ export const createGame = async (gameName) => {
         'POST',
         {
           name: gameName,
-        }
+          gameID: fixedGameId, // Pass the fixed game ID in the API request
+        },
       );
 
-      // Check if the response contains the gameId property
-      if (response?.result?.includes('Game with ID: ')) {
+      if (response?.result?.startsWith('Game with ID: ')) {
         // Extract the gameId from the response
-        const newGameId = response.result.split('Game with ID: ')[1];
-        if (newGameId) {
-          localStorage.setItem('gameId', newGameId);
-        }
+        gameId = fixedGameId;
+        localStorage.setItem('gameId', gameId);
       }
     }
+    return gameId;
   } catch (error) {
     handleApiError(error);
     throw error;
   }
 };
 
-export const retrieveScores = async () => {
+export const retrieveScoresFromAPI = async (gameId) => {
   try {
-    // Get the game ID from local storage
-    const gameId = getGameId(); 
-
-    if (!gameId) {
-      throw new Error('Game ID not found. Please create a new game first.');
-    }
-
     const response = await makeApiRequest(
       `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`,
-      'GET'
+      'GET',
     );
 
     // Extract the scores from the response
-    const scores = response.result; 
+    const scores = response.result;
 
-    localStorage.setItem('scores', JSON.stringify(scores));
-    // Return the extracted scores
-    return scores; 
+    // Check if the scores variable is an array
+    if (Array.isArray(scores)) {
+      // Return the extracted scores if it's an array
+      return scores;
+    }
+    throw new Error('Invalid scores data format.');
   } catch (error) {
     handleApiError(error);
     // Return an empty array if there's an error
-    return []; 
+    return [];
+  }
+};
+
+export const retrieveScores = async () => {
+  try {
+    const gameId = getGameId();
+
+    if (!gameId) {
+      // If the game ID is not found in local storage, display a message
+      // Return an empty array when the scores are not available
+      return [];
+    }
+
+    const scores = await retrieveScoresFromAPI(gameId);
+    return scores;
+  } catch (error) {
+    // Return an empty array when there's an error
+    return [];
   }
 };
 
 export const addYourScore = async (userName, score) => {
   try {
     // Get the game ID from local storage
-    const gameId = getGameId(); 
+    const gameId = getGameId();
     if (!gameId) {
       throw new Error('Game ID not found. Please create a new game first.');
     }
 
     const parsedScore = parseInt(score, 10);
 
-    if (!userName || isNaN(parsedScore) || parsedScore <= 0) {
+    if (!userName || Number.isNaN(parsedScore) || parsedScore <= 0) {
       return;
     }
 
@@ -117,7 +132,7 @@ export const addYourScore = async (userName, score) => {
       {
         user: userName,
         score: parsedScore,
-      }
+      },
     );
 
     const scores = await retrieveScores();

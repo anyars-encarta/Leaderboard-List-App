@@ -1,12 +1,21 @@
 // import './style.css';
 import myDateTime from './modules/date-time.js';
-import { createGame, addYourScore, retrieveScores, getGameId } from './modules/scoreblock.js';
+import {
+  createGame, addYourScore, retrieveScores, getGameId,
+} from './modules/scoreblock.js';
+
+const submitForm = document.querySelector('.scores-form');
+const refreshButton = document.getElementById('refresh');
+
 const scoresContainer = document.getElementById('score-list');
+
+// Declare the gameName variable here
+const gameName = "Anyars' Quiz Game";
 
 const displayScores = (scores) => {
   scoresContainer.innerHTML = '';
 
-  if (scores.length === 0) {
+  if (!Array.isArray(scores) || scores.length === 0) {
     const noScoresMessage = document.createElement('p');
     noScoresMessage.textContent = 'No scores to display...';
     scoresContainer.appendChild(noScoresMessage);
@@ -15,7 +24,7 @@ const displayScores = (scores) => {
     scores.forEach(({ user, score }, index) => {
       const listItem = document.createElement('li');
       listItem.setAttribute('id', `score-${index}`);
-      listItem.textContent = user + ': ' + score;
+      listItem.textContent = `${user}: ${score}`;
       scoresContainer.appendChild(listItem);
     });
   }
@@ -23,10 +32,25 @@ const displayScores = (scores) => {
 
 const refreshScores = async () => {
   try {
-    const scores = await retrieveScores();
+    // Get the gameId from local storage
+    let gameId = getGameId();
+
+    if (!gameId) {
+      gameId = await createGame(gameName);
+
+      if (!gameId) {
+        // console.error('Error creating/fetching game ID.');
+        return;
+      }
+
+      localStorage.setItem('gameId', gameId);
+    }
+
+    // Pass the scoresContainer
+    const scores = await retrieveScores(gameId, scoresContainer);
     displayScores(scores);
   } catch (error) {
-    console.error('Error retrieving scores:', error.message);
+    // console.error('Error retrieving scores:', error.message);
   }
 };
 
@@ -40,7 +64,7 @@ const onSubmitScore = async (e) => {
   const score = scoreInput.value;
 
   // Validate user input
-  if (!userName || !score || isNaN(parseInt(score, 10))) {
+  if (!userName || !score || Number.isNaN(parseInt(score, 10))) {
     // Invalid input, handle the error appropriately
     const messageSpan = document.getElementById('message');
 
@@ -59,32 +83,53 @@ const onSubmitScore = async (e) => {
   }
 
   try {
+    let gameId = getGameId();
+
+    if (!gameId) {
+      // If the game ID is not found in local storage,
+      // create a new game and pass the gameName variable
+      gameId = await createGame(gameName);
+
+      if (!gameId) {
+        throw new Error('Error creating/fetching game ID.');
+      }
+
+      // Set the game ID in local storage for future use
+      localStorage.setItem('gameId', gameId);
+    }
+
     await addYourScore(userName, score);
     refreshScores();
     submitForm.reset();
   } catch (error) {
-    console.error('Error submitting score:', error.message);
+    // console.error('Error submitting score:', error.message);
   }
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
   myDateTime();
+  refreshScores();
 
-  const gameName = '"Anyars\' Quiz Game';
   try {
     // First, create the game or fetch the existing game ID
-    await createGame(gameName);
+    const gameId = await createGame(gameName);
 
-    // Then, fetch the scores and display them after the game ID is available
-    const scores = await retrieveScores();
-    displayScores(scores);
+    if (gameId) {
+      // If the gameId is successfully retrieved, fetch the scores and display them and pass the
+      // scoresContainer to retrieveScores
+      retrieveScores(scoresContainer);
+    } else {
+      // console.error('Error creating/fetching game ID.');
+    }
   } catch (error) {
-    console.error('Error creating new game:', error.message);
+    // console.error('Error creating new game:', error.message);
   }
+
+  const submitForm = document.querySelector('.scores-form');
+  submitForm.addEventListener('submit', onSubmitScore);
 });
 
-const submitForm = document.querySelector('.scores-form');
 submitForm.addEventListener('submit', onSubmitScore);
-
-const refreshButton = document.getElementById('refresh');
 refreshButton.addEventListener('click', refreshScores);
+
+export default displayScores;
