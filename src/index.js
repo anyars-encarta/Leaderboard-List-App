@@ -1,4 +1,4 @@
-// import './style.css';
+import './style.css';
 import myDateTime from './modules/date-time.js';
 import {
   createGame, addYourScore, retrieveScores, getGameId,
