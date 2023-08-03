@@ -8098,15 +8098,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./assets/quality-level.JPG */ "./src/assets/quality-level.JPG"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `body {
+___CSS_LOADER_EXPORT___.push([module.id, `html {
+  min-height: 100%;
+}
+
+body {
   margin: 0 auto;
-  width: 70%;
+  width: 95%;
+  height: 100%;
   box-sizing: border-box;
+  background-image: linear-gradient(to bottom, rgb(15, 15, 15), rgba(0, 0, 0, 0.5)), url(${___CSS_LOADER_URL_REPLACEMENT_0___});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .body,
@@ -8115,58 +8129,42 @@ input,
   font-family: 'Comic Sans MS', sans-serif;
 }
 
+#message,
+input,
+#refresh {
+  font-size: 15px;
+}
+
+#add-btn {
+  align-self: flex-end;
+}
+
+input {
+  padding: 10px;
+}
+
+#refresh:hover,
+#add-btn:hover,
+input:focus {
+  background-color: aqua;
+}
+
 .remove-btn {
   display: none;
 }
 
-#date-time {
-  float: right;
-  font-size: 25px;
-}
-
-h1 {
-  font-size: 60px;
+h1,
+#date-time,
+h2 {
+  color: rgb(8, 255, 234);
+  text-shadow: 1px 1px #0c0c0c;
+  font-weight: bold;
 }
 
 .main-section,
 .list-heading,
 form {
   display: flex;
-}
-
-.main-section {
-  justify-content: center;
-  margin: 0 50px 0 50px;
-  gap: 50px;
-}
-
-.list-score-section,
-.add-score-section {
-  width: 600px;
-}
-
-h2 {
-  font-size: 35px;
-}
-
-.list-heading {
-  align-items: center;
-  justify-content: space-between;
-}
-
-form {
-  flex-direction: column;
-  gap: 20px;
-}
-
-.list-heading span,
-.add-btn,
-#score-list {
-  border: 1px solid black;
-}
-
-#add-btn {
-  align-self: flex-end;
 }
 
 .list-heading span,
@@ -8178,46 +8176,109 @@ form {
   box-shadow: 4px 4px 0 rgb(2, 2, 2);
 }
 
-.list-heading h2 {
-  margin-right: 40px;
+#date-time {
+  float: right;
+  font-size: 10px;
+}
+
+.main-section {
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 10px;
+  width: 350px;
+}
+
+form {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.list-heading {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-heading span,
+.add-btn,
+#score-list {
+  border: 1px solid black;
 }
 
 #score-list {
   list-style-type: none;
   font-size: 20px;
   padding: 0;
+  background-color: rgb(8, 255, 234);
+  border-radius: 20px;
+  border: 2px solid rgb(8, 255, 234);
 }
 
-li,
-.add-btn {
-  font-size: 30px;
-}
-
-li:nth-child(odd) {
+li:nth-child(even) {
   background-color: #f4f2f2;
 }
 
-#score-list li {
-  padding: 0 0 0 5px;
-}
+/******************************* Desktop View ******************************************/
+@media (min-width: 768px) {
+  body {
+    width: 70%;
+  }
 
-.add-score-section h2 {
-  margin-bottom: 50px;
-}
+  #date-time {
+    float: right;
+    font-size: 25px;
+  }
 
-#message,
-input {
-  font-size: 20px;
-}
+  h1 {
+    font-size: 60px;
+  }
 
-input {
-  padding: 10px;
-}
+  .main-section {
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 50px 0 50px;
+    gap: 50px;
+    width: 900px;
+  }
 
-.add-btn {
-  width: 120px;
+  .list-score-section,
+  .add-score-section {
+    width: 600px;
+  }
+
+  h2 {
+    font-size: 35px;
+  }
+
+  form {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .list-heading h2 {
+    margin-right: 40px;
+  }
+
+  li,
+  .add-btn,
+  #refresh {
+    font-size: 30px;
+  }
+
+  #score-list li {
+    padding: 0 0 0 5px;
+  }
+
+  .add-score-section h2 {
+    margin-bottom: 50px;
+  }
+
+  #message,
+  input {
+    font-size: 20px;
+  }
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,UAAU;EACV,sBAAsB;AACxB;;AAEA;;;EAGE,wCAAwC;AAC1C;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,eAAe;AACjB;;AAEA;;;EAGE,aAAa;AACf;;AAEA;EACE,uBAAuB;EACvB,qBAAqB;EACrB,SAAS;AACX;;AAEA;;EAEE,YAAY;AACd;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,mBAAmB;EACnB,8BAA8B;AAChC;;AAEA;EACE,sBAAsB;EACtB,SAAS;AACX;;AAEA;;;EAGE,uBAAuB;AACzB;;AAEA;EACE,oBAAoB;AACtB;;AAEA;;EAEE,eAAe;EACf,YAAY;EACZ,eAAe;EACf,sBAAsB;EACtB,kCAAkC;AACpC;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,qBAAqB;EACrB,eAAe;EACf,UAAU;AACZ;;AAEA;;EAEE,eAAe;AACjB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;;EAEE,eAAe;AACjB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,YAAY;AACd","sourcesContent":["body {\r\n  margin: 0 auto;\r\n  width: 70%;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.body,\r\ninput,\r\n.add-btn {\r\n  font-family: 'Comic Sans MS', sans-serif;\r\n}\r\n\r\n.remove-btn {\r\n  display: none;\r\n}\r\n\r\n#date-time {\r\n  float: right;\r\n  font-size: 25px;\r\n}\r\n\r\nh1 {\r\n  font-size: 60px;\r\n}\r\n\r\n.main-section,\r\n.list-heading,\r\nform {\r\n  display: flex;\r\n}\r\n\r\n.main-section {\r\n  justify-content: center;\r\n  margin: 0 50px 0 50px;\r\n  gap: 50px;\r\n}\r\n\r\n.list-score-section,\r\n.add-score-section {\r\n  width: 600px;\r\n}\r\n\r\nh2 {\r\n  font-size: 35px;\r\n}\r\n\r\n.list-heading {\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n\r\nform {\r\n  flex-direction: column;\r\n  gap: 20px;\r\n}\r\n\r\n.list-heading span,\r\n.add-btn,\r\n#score-list {\r\n  border: 1px solid black;\r\n}\r\n\r\n#add-btn {\r\n  align-self: flex-end;\r\n}\r\n\r\n.list-heading span,\r\n.add-btn {\r\n  font-size: 18px;\r\n  padding: 4px;\r\n  cursor: pointer;\r\n  background-color: #fff;\r\n  box-shadow: 4px 4px 0 rgb(2, 2, 2);\r\n}\r\n\r\n.list-heading h2 {\r\n  margin-right: 40px;\r\n}\r\n\r\n#score-list {\r\n  list-style-type: none;\r\n  font-size: 20px;\r\n  padding: 0;\r\n}\r\n\r\nli,\r\n.add-btn {\r\n  font-size: 30px;\r\n}\r\n\r\nli:nth-child(odd) {\r\n  background-color: #f4f2f2;\r\n}\r\n\r\n#score-list li {\r\n  padding: 0 0 0 5px;\r\n}\r\n\r\n.add-score-section h2 {\r\n  margin-bottom: 50px;\r\n}\r\n\r\n#message,\r\ninput {\r\n  font-size: 20px;\r\n}\r\n\r\ninput {\r\n  padding: 10px;\r\n}\r\n\r\n.add-btn {\r\n  width: 120px;\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,UAAU;EACV,YAAY;EACZ,sBAAsB;EACtB,0HAAkH;EAClH,2BAA2B;EAC3B,4BAA4B;EAC5B,sBAAsB;AACxB;;AAEA;;;EAGE,wCAAwC;AAC1C;;AAEA;;;EAGE,eAAe;AACjB;;AAEA;EACE,oBAAoB;AACtB;;AAEA;EACE,aAAa;AACf;;AAEA;;;EAGE,sBAAsB;AACxB;;AAEA;EACE,aAAa;AACf;;AAEA;;;EAGE,uBAAuB;EACvB,4BAA4B;EAC5B,iBAAiB;AACnB;;AAEA;;;EAGE,aAAa;AACf;;AAEA;;EAEE,eAAe;EACf,YAAY;EACZ,eAAe;EACf,sBAAsB;EACtB,kCAAkC;AACpC;;AAEA;EACE,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,8BAA8B;EAC9B,uBAAuB;EACvB,cAAc;EACd,SAAS;EACT,YAAY;AACd;;AAEA;EACE,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,mBAAmB;EACnB,8BAA8B;AAChC;;AAEA;;;EAGE,uBAAuB;AACzB;;AAEA;EACE,qBAAqB;EACrB,eAAe;EACf,UAAU;EACV,kCAAkC;EAClC,mBAAmB;EACnB,kCAAkC;AACpC;;AAEA;EACE,yBAAyB;AAC3B;;AAEA,wFAAwF;AACxF;EACE;IACE,UAAU;EACZ;;EAEA;IACE,YAAY;IACZ,eAAe;EACjB;;EAEA;IACE,eAAe;EACjB;;EAEA;IACE,mBAAmB;IACnB,uBAAuB;IACvB,qBAAqB;IACrB,SAAS;IACT,YAAY;EACd;;EAEA;;IAEE,YAAY;EACd;;EAEA;IACE,eAAe;EACjB;;EAEA;IACE,sBAAsB;IACtB,SAAS;EACX;;EAEA;IACE,kBAAkB;EACpB;;EAEA;;;IAGE,eAAe;EACjB;;EAEA;IACE,kBAAkB;EACpB;;EAEA;IACE,mBAAmB;EACrB;;EAEA;;IAEE,eAAe;EACjB;AACF","sourcesContent":["html {\r\n  min-height: 100%;\r\n}\r\n\r\nbody {\r\n  margin: 0 auto;\r\n  width: 95%;\r\n  height: 100%;\r\n  box-sizing: border-box;\r\n  background-image: linear-gradient(to bottom, rgb(15, 15, 15), rgba(0, 0, 0, 0.5)), url(./assets/quality-level.JPG);\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n}\r\n\r\n.body,\r\ninput,\r\n.add-btn {\r\n  font-family: 'Comic Sans MS', sans-serif;\r\n}\r\n\r\n#message,\r\ninput,\r\n#refresh {\r\n  font-size: 15px;\r\n}\r\n\r\n#add-btn {\r\n  align-self: flex-end;\r\n}\r\n\r\ninput {\r\n  padding: 10px;\r\n}\r\n\r\n#refresh:hover,\r\n#add-btn:hover,\r\ninput:focus {\r\n  background-color: aqua;\r\n}\r\n\r\n.remove-btn {\r\n  display: none;\r\n}\r\n\r\nh1,\r\n#date-time,\r\nh2 {\r\n  color: rgb(8, 255, 234);\r\n  text-shadow: 1px 1px #0c0c0c;\r\n  font-weight: bold;\r\n}\r\n\r\n.main-section,\r\n.list-heading,\r\nform {\r\n  display: flex;\r\n}\r\n\r\n.list-heading span,\r\n.add-btn {\r\n  font-size: 18px;\r\n  padding: 4px;\r\n  cursor: pointer;\r\n  background-color: #fff;\r\n  box-shadow: 4px 4px 0 rgb(2, 2, 2);\r\n}\r\n\r\n#date-time {\r\n  float: right;\r\n  font-size: 10px;\r\n}\r\n\r\n.main-section {\r\n  flex-direction: column-reverse;\r\n  justify-content: center;\r\n  margin: 0 auto;\r\n  gap: 10px;\r\n  width: 350px;\r\n}\r\n\r\nform {\r\n  flex-direction: column;\r\n  gap: 20px;\r\n}\r\n\r\n.list-heading {\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n\r\n.list-heading span,\r\n.add-btn,\r\n#score-list {\r\n  border: 1px solid black;\r\n}\r\n\r\n#score-list {\r\n  list-style-type: none;\r\n  font-size: 20px;\r\n  padding: 0;\r\n  background-color: rgb(8, 255, 234);\r\n  border-radius: 20px;\r\n  border: 2px solid rgb(8, 255, 234);\r\n}\r\n\r\nli:nth-child(even) {\r\n  background-color: #f4f2f2;\r\n}\r\n\r\n/******************************* Desktop View ******************************************/\r\n@media (min-width: 768px) {\r\n  body {\r\n    width: 70%;\r\n  }\r\n\r\n  #date-time {\r\n    float: right;\r\n    font-size: 25px;\r\n  }\r\n\r\n  h1 {\r\n    font-size: 60px;\r\n  }\r\n\r\n  .main-section {\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    margin: 0 50px 0 50px;\r\n    gap: 50px;\r\n    width: 900px;\r\n  }\r\n\r\n  .list-score-section,\r\n  .add-score-section {\r\n    width: 600px;\r\n  }\r\n\r\n  h2 {\r\n    font-size: 35px;\r\n  }\r\n\r\n  form {\r\n    flex-direction: column;\r\n    gap: 20px;\r\n  }\r\n\r\n  .list-heading h2 {\r\n    margin-right: 40px;\r\n  }\r\n\r\n  li,\r\n  .add-btn,\r\n  #refresh {\r\n    font-size: 30px;\r\n  }\r\n\r\n  #score-list li {\r\n    padding: 0 0 0 5px;\r\n  }\r\n\r\n  .add-score-section h2 {\r\n    margin-bottom: 50px;\r\n  }\r\n\r\n  #message,\r\n  input {\r\n    font-size: 20px;\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8314,6 +8375,41 @@ module.exports = function (cssWithMappingToString) {
     }
   };
   return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    options = {};
+  }
+  if (!url) {
+    return url;
+  }
+  url = String(url.__esModule ? url.default : url);
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['"].*['"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+  if (options.hash) {
+    url += options.hash;
+  }
+
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
+  }
+  return url;
 };
 
 /***/ }),
@@ -8662,6 +8758,16 @@ function styleTagTransform(css, styleElement) {
 }
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/assets/quality-level.JPG":
+/*!**************************************!*\
+  !*** ./src/assets/quality-level.JPG ***!
+  \**************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "quality-level.JPG";
+
 /***/ })
 
 /******/ 	});
@@ -8690,6 +8796,9 @@ module.exports = styleTagTransform;
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -8715,6 +8824,18 @@ module.exports = styleTagTransform;
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -8729,6 +8850,55 @@ module.exports = styleTagTransform;
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"bundle": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
