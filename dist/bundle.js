@@ -8125,7 +8125,8 @@ body {
 
 .body,
 input,
-.add-btn {
+.add-btn,
+.remove-btn {
   font-family: 'Comic Sans MS', sans-serif;
 }
 
@@ -8135,7 +8136,8 @@ input,
   font-size: 15px;
 }
 
-#add-btn {
+#add-btn,
+.remove-btn {
   align-self: flex-end;
 }
 
@@ -8145,13 +8147,14 @@ input {
 
 #refresh:hover,
 #add-btn:hover,
+.remove-btn:hover,
 input:focus {
   background-color: aqua;
 }
 
-.remove-btn {
+/* .remove-btn {
   display: none;
-}
+} */
 
 h1,
 #date-time,
@@ -8163,12 +8166,14 @@ h2 {
 
 .main-section,
 .list-heading,
-form {
+form,
+li {
   display: flex;
 }
 
 .list-heading span,
-.add-btn {
+.add-btn,
+.remove-btn {
   font-size: 18px;
   padding: 4px;
   cursor: pointer;
@@ -8196,6 +8201,10 @@ form {
 
 .list-heading {
   align-items: center;
+}
+
+.list-heading,
+li {
   justify-content: space-between;
 }
 
@@ -8278,7 +8287,7 @@ li:nth-child(even) {
     font-size: 20px;
   }
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,UAAU;EACV,YAAY;EACZ,sBAAsB;EACtB,0HAAkH;EAClH,2BAA2B;EAC3B,4BAA4B;EAC5B,sBAAsB;AACxB;;AAEA;;;EAGE,wCAAwC;AAC1C;;AAEA;;;EAGE,eAAe;AACjB;;AAEA;EACE,oBAAoB;AACtB;;AAEA;EACE,aAAa;AACf;;AAEA;;;EAGE,sBAAsB;AACxB;;AAEA;EACE,aAAa;AACf;;AAEA;;;EAGE,uBAAuB;EACvB,4BAA4B;EAC5B,iBAAiB;AACnB;;AAEA;;;EAGE,aAAa;AACf;;AAEA;;EAEE,eAAe;EACf,YAAY;EACZ,eAAe;EACf,sBAAsB;EACtB,kCAAkC;AACpC;;AAEA;EACE,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,8BAA8B;EAC9B,uBAAuB;EACvB,cAAc;EACd,SAAS;EACT,YAAY;AACd;;AAEA;EACE,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,mBAAmB;EACnB,8BAA8B;AAChC;;AAEA;;;EAGE,uBAAuB;AACzB;;AAEA;EACE,qBAAqB;EACrB,eAAe;EACf,UAAU;EACV,kCAAkC;EAClC,mBAAmB;EACnB,kCAAkC;AACpC;;AAEA;EACE,yBAAyB;AAC3B;;AAEA,wFAAwF;AACxF;EACE;IACE,UAAU;EACZ;;EAEA;IACE,YAAY;IACZ,eAAe;EACjB;;EAEA;IACE,eAAe;EACjB;;EAEA;IACE,mBAAmB;IACnB,uBAAuB;IACvB,qBAAqB;IACrB,SAAS;IACT,YAAY;EACd;;EAEA;;IAEE,YAAY;EACd;;EAEA;IACE,eAAe;EACjB;;EAEA;IACE,sBAAsB;IACtB,SAAS;EACX;;EAEA;IACE,kBAAkB;EACpB;;EAEA;;;IAGE,eAAe;EACjB;;EAEA;IACE,kBAAkB;EACpB;;EAEA;IACE,mBAAmB;EACrB;;EAEA;;IAEE,eAAe;EACjB;AACF","sourcesContent":["html {\r\n  min-height: 100%;\r\n}\r\n\r\nbody {\r\n  margin: 0 auto;\r\n  width: 95%;\r\n  height: 100%;\r\n  box-sizing: border-box;\r\n  background-image: linear-gradient(to bottom, rgb(15, 15, 15), rgba(0, 0, 0, 0.5)), url(./assets/quality-level.JPG);\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n}\r\n\r\n.body,\r\ninput,\r\n.add-btn {\r\n  font-family: 'Comic Sans MS', sans-serif;\r\n}\r\n\r\n#message,\r\ninput,\r\n#refresh {\r\n  font-size: 15px;\r\n}\r\n\r\n#add-btn {\r\n  align-self: flex-end;\r\n}\r\n\r\ninput {\r\n  padding: 10px;\r\n}\r\n\r\n#refresh:hover,\r\n#add-btn:hover,\r\ninput:focus {\r\n  background-color: aqua;\r\n}\r\n\r\n.remove-btn {\r\n  display: none;\r\n}\r\n\r\nh1,\r\n#date-time,\r\nh2 {\r\n  color: rgb(8, 255, 234);\r\n  text-shadow: 1px 1px #0c0c0c;\r\n  font-weight: bold;\r\n}\r\n\r\n.main-section,\r\n.list-heading,\r\nform {\r\n  display: flex;\r\n}\r\n\r\n.list-heading span,\r\n.add-btn {\r\n  font-size: 18px;\r\n  padding: 4px;\r\n  cursor: pointer;\r\n  background-color: #fff;\r\n  box-shadow: 4px 4px 0 rgb(2, 2, 2);\r\n}\r\n\r\n#date-time {\r\n  float: right;\r\n  font-size: 10px;\r\n}\r\n\r\n.main-section {\r\n  flex-direction: column-reverse;\r\n  justify-content: center;\r\n  margin: 0 auto;\r\n  gap: 10px;\r\n  width: 350px;\r\n}\r\n\r\nform {\r\n  flex-direction: column;\r\n  gap: 20px;\r\n}\r\n\r\n.list-heading {\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n\r\n.list-heading span,\r\n.add-btn,\r\n#score-list {\r\n  border: 1px solid black;\r\n}\r\n\r\n#score-list {\r\n  list-style-type: none;\r\n  font-size: 20px;\r\n  padding: 0;\r\n  background-color: rgb(8, 255, 234);\r\n  border-radius: 20px;\r\n  border: 2px solid rgb(8, 255, 234);\r\n}\r\n\r\nli:nth-child(even) {\r\n  background-color: #f4f2f2;\r\n}\r\n\r\n/******************************* Desktop View ******************************************/\r\n@media (min-width: 768px) {\r\n  body {\r\n    width: 70%;\r\n  }\r\n\r\n  #date-time {\r\n    float: right;\r\n    font-size: 25px;\r\n  }\r\n\r\n  h1 {\r\n    font-size: 60px;\r\n  }\r\n\r\n  .main-section {\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    margin: 0 50px 0 50px;\r\n    gap: 50px;\r\n    width: 900px;\r\n  }\r\n\r\n  .list-score-section,\r\n  .add-score-section {\r\n    width: 600px;\r\n  }\r\n\r\n  h2 {\r\n    font-size: 35px;\r\n  }\r\n\r\n  form {\r\n    flex-direction: column;\r\n    gap: 20px;\r\n  }\r\n\r\n  .list-heading h2 {\r\n    margin-right: 40px;\r\n  }\r\n\r\n  li,\r\n  .add-btn,\r\n  #refresh {\r\n    font-size: 30px;\r\n  }\r\n\r\n  #score-list li {\r\n    padding: 0 0 0 5px;\r\n  }\r\n\r\n  .add-score-section h2 {\r\n    margin-bottom: 50px;\r\n  }\r\n\r\n  #message,\r\n  input {\r\n    font-size: 20px;\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,UAAU;EACV,YAAY;EACZ,sBAAsB;EACtB,0HAAkH;EAClH,2BAA2B;EAC3B,4BAA4B;EAC5B,sBAAsB;AACxB;;AAEA;;;;EAIE,wCAAwC;AAC1C;;AAEA;;;EAGE,eAAe;AACjB;;AAEA;;EAEE,oBAAoB;AACtB;;AAEA;EACE,aAAa;AACf;;AAEA;;;;EAIE,sBAAsB;AACxB;;AAEA;;GAEG;;AAEH;;;EAGE,uBAAuB;EACvB,4BAA4B;EAC5B,iBAAiB;AACnB;;AAEA;;;;EAIE,aAAa;AACf;;AAEA;;;EAGE,eAAe;EACf,YAAY;EACZ,eAAe;EACf,sBAAsB;EACtB,kCAAkC;AACpC;;AAEA;EACE,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,8BAA8B;EAC9B,uBAAuB;EACvB,cAAc;EACd,SAAS;EACT,YAAY;AACd;;AAEA;EACE,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,mBAAmB;AACrB;;AAEA;;EAEE,8BAA8B;AAChC;;AAEA;;;EAGE,uBAAuB;AACzB;;AAEA;EACE,qBAAqB;EACrB,eAAe;EACf,UAAU;EACV,kCAAkC;EAClC,mBAAmB;EACnB,kCAAkC;AACpC;;AAEA;EACE,yBAAyB;AAC3B;;AAEA,wFAAwF;AACxF;EACE;IACE,UAAU;EACZ;;EAEA;IACE,YAAY;IACZ,eAAe;EACjB;;EAEA;IACE,eAAe;EACjB;;EAEA;IACE,mBAAmB;IACnB,uBAAuB;IACvB,qBAAqB;IACrB,SAAS;IACT,YAAY;EACd;;EAEA;;IAEE,YAAY;EACd;;EAEA;IACE,eAAe;EACjB;;EAEA;IACE,sBAAsB;IACtB,SAAS;EACX;;EAEA;IACE,kBAAkB;EACpB;;EAEA;;;IAGE,eAAe;EACjB;;EAEA;IACE,kBAAkB;EACpB;;EAEA;IACE,mBAAmB;EACrB;;EAEA;;IAEE,eAAe;EACjB;AACF","sourcesContent":["html {\r\n  min-height: 100%;\r\n}\r\n\r\nbody {\r\n  margin: 0 auto;\r\n  width: 95%;\r\n  height: 100%;\r\n  box-sizing: border-box;\r\n  background-image: linear-gradient(to bottom, rgb(15, 15, 15), rgba(0, 0, 0, 0.5)), url(./assets/quality-level.JPG);\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n}\r\n\r\n.body,\r\ninput,\r\n.add-btn,\r\n.remove-btn {\r\n  font-family: 'Comic Sans MS', sans-serif;\r\n}\r\n\r\n#message,\r\ninput,\r\n#refresh {\r\n  font-size: 15px;\r\n}\r\n\r\n#add-btn,\r\n.remove-btn {\r\n  align-self: flex-end;\r\n}\r\n\r\ninput {\r\n  padding: 10px;\r\n}\r\n\r\n#refresh:hover,\r\n#add-btn:hover,\r\n.remove-btn:hover,\r\ninput:focus {\r\n  background-color: aqua;\r\n}\r\n\r\n/* .remove-btn {\r\n  display: none;\r\n} */\r\n\r\nh1,\r\n#date-time,\r\nh2 {\r\n  color: rgb(8, 255, 234);\r\n  text-shadow: 1px 1px #0c0c0c;\r\n  font-weight: bold;\r\n}\r\n\r\n.main-section,\r\n.list-heading,\r\nform,\r\nli {\r\n  display: flex;\r\n}\r\n\r\n.list-heading span,\r\n.add-btn,\r\n.remove-btn {\r\n  font-size: 18px;\r\n  padding: 4px;\r\n  cursor: pointer;\r\n  background-color: #fff;\r\n  box-shadow: 4px 4px 0 rgb(2, 2, 2);\r\n}\r\n\r\n#date-time {\r\n  float: right;\r\n  font-size: 10px;\r\n}\r\n\r\n.main-section {\r\n  flex-direction: column-reverse;\r\n  justify-content: center;\r\n  margin: 0 auto;\r\n  gap: 10px;\r\n  width: 350px;\r\n}\r\n\r\nform {\r\n  flex-direction: column;\r\n  gap: 20px;\r\n}\r\n\r\n.list-heading {\r\n  align-items: center;\r\n}\r\n\r\n.list-heading,\r\nli {\r\n  justify-content: space-between;\r\n}\r\n\r\n.list-heading span,\r\n.add-btn,\r\n#score-list {\r\n  border: 1px solid black;\r\n}\r\n\r\n#score-list {\r\n  list-style-type: none;\r\n  font-size: 20px;\r\n  padding: 0;\r\n  background-color: rgb(8, 255, 234);\r\n  border-radius: 20px;\r\n  border: 2px solid rgb(8, 255, 234);\r\n}\r\n\r\nli:nth-child(even) {\r\n  background-color: #f4f2f2;\r\n}\r\n\r\n/******************************* Desktop View ******************************************/\r\n@media (min-width: 768px) {\r\n  body {\r\n    width: 70%;\r\n  }\r\n\r\n  #date-time {\r\n    float: right;\r\n    font-size: 25px;\r\n  }\r\n\r\n  h1 {\r\n    font-size: 60px;\r\n  }\r\n\r\n  .main-section {\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    margin: 0 50px 0 50px;\r\n    gap: 50px;\r\n    width: 900px;\r\n  }\r\n\r\n  .list-score-section,\r\n  .add-score-section {\r\n    width: 600px;\r\n  }\r\n\r\n  h2 {\r\n    font-size: 35px;\r\n  }\r\n\r\n  form {\r\n    flex-direction: column;\r\n    gap: 20px;\r\n  }\r\n\r\n  .list-heading h2 {\r\n    margin-right: 40px;\r\n  }\r\n\r\n  li,\r\n  .add-btn,\r\n  #refresh {\r\n    font-size: 30px;\r\n  }\r\n\r\n  #score-list li {\r\n    padding: 0 0 0 5px;\r\n  }\r\n\r\n  .add-score-section h2 {\r\n    margin-bottom: 50px;\r\n  }\r\n\r\n  #message,\r\n  input {\r\n    font-size: 20px;\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8947,6 +8956,11 @@ var displayScores = function displayScores(scores) {
       var listItem = document.createElement('li');
       listItem.setAttribute('id', "score-".concat(index));
       listItem.textContent = "".concat(user, ": ").concat(score);
+      //Create remove button
+      var removeButton = document.createElement('button');
+      removeButton.setAttribute('class', 'remove-btn');
+      removeButton.textContent = 'Remove';
+      listItem.appendChild(removeButton);
       scoresContainer.appendChild(listItem);
     });
   }

@@ -15,7 +15,8 @@ body {
 
 .body,
 input,
-.add-btn {
+.add-btn,
+.remove-btn {
   font-family: 'Comic Sans MS', sans-serif;
 }
 
@@ -25,7 +26,8 @@ input,
   font-size: 15px;
 }
 
-#add-btn {
+#add-btn,
+.remove-btn {
   align-self: flex-end;
 }
 
@@ -35,12 +37,13 @@ input {
 
 #refresh:hover,
 #add-btn:hover,
+.remove-btn:hover,
 input:focus {
   background-color: aqua;
 }
 
 .remove-btn {
-  display: none;
+  border-radius: 20px;
 }
 
 h1,
@@ -53,12 +56,14 @@ h2 {
 
 .main-section,
 .list-heading,
-form {
+form,
+li {
   display: flex;
 }
 
 .list-heading span,
-.add-btn {
+.add-btn,
+.remove-btn {
   font-size: 18px;
   padding: 4px;
   cursor: pointer;
@@ -86,6 +91,10 @@ form {
 
 .list-heading {
   align-items: center;
+}
+
+.list-heading,
+li {
   justify-content: space-between;
 }
 

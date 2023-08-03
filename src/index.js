@@ -25,6 +25,11 @@ const displayScores = (scores) => {
       const listItem = document.createElement('li');
       listItem.setAttribute('id', `score-${index}`);
       listItem.textContent = `${user}: ${score}`;
+      //Create remove button
+      const removeButton = document.createElement('button');
+      removeButton.setAttribute('class', 'remove-btn');
+      removeButton.textContent = 'Remove';
+      listItem.appendChild(removeButton);
       scoresContainer.appendChild(listItem);
     });
   }
