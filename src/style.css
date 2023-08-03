@@ -1,7 +1,16 @@
+html {
+  min-height: 100%;
+}
+
 body {
   margin: 0 auto;
-  width: 70%;
+  width: 95%;
+  height: 100%;
   box-sizing: border-box;
+  background-image: linear-gradient(to bottom, rgb(15, 15, 15), rgba(0, 0, 0, 0.5)), url(./assets/quality-level.JPG);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .body,
@@ -10,58 +19,42 @@ input,
   font-family: 'Comic Sans MS', sans-serif;
 }
 
+#message,
+input,
+#refresh {
+  font-size: 15px;
+}
+
+#add-btn {
+  align-self: flex-end;
+}
+
+input {
+  padding: 10px;
+}
+
+#refresh:hover,
+#add-btn:hover,
+input:focus {
+  background-color: aqua;
+}
+
 .remove-btn {
   display: none;
 }
 
-#date-time {
-  float: right;
-  font-size: 25px;
-}
-
-h1 {
-  font-size: 60px;
+h1,
+#date-time,
+h2 {
+  color: rgb(8, 255, 234);
+  text-shadow: 1px 1px #0c0c0c;
+  font-weight: bold;
 }
 
 .main-section,
 .list-heading,
 form {
   display: flex;
-}
-
-.main-section {
-  justify-content: center;
-  margin: 0 50px 0 50px;
-  gap: 50px;
-}
-
-.list-score-section,
-.add-score-section {
-  width: 600px;
-}
-
-h2 {
-  font-size: 35px;
-}
-
-.list-heading {
-  align-items: center;
-  justify-content: space-between;
-}
-
-form {
-  flex-direction: column;
-  gap: 20px;
-}
-
-.list-heading span,
-.add-btn,
-#score-list {
-  border: 1px solid black;
-}
-
-#add-btn {
-  align-self: flex-end;
 }
 
 .list-heading span,
@@ -73,42 +66,105 @@ form {
   box-shadow: 4px 4px 0 rgb(2, 2, 2);
 }
 
-.list-heading h2 {
-  margin-right: 40px;
+#date-time {
+  float: right;
+  font-size: 10px;
+}
+
+.main-section {
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 10px;
+  width: 350px;
+}
+
+form {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.list-heading {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-heading span,
+.add-btn,
+#score-list {
+  border: 1px solid black;
 }
 
 #score-list {
   list-style-type: none;
   font-size: 20px;
   padding: 0;
+  background-color: rgb(8, 255, 234);
+  border-radius: 20px;
+  border: 2px solid rgb(8, 255, 234);
 }
 
-li,
-.add-btn {
-  font-size: 30px;
-}
-
-li:nth-child(odd) {
+li:nth-child(even) {
   background-color: #f4f2f2;
 }
 
-#score-list li {
-  padding: 0 0 0 5px;
-}
+/******************************* Desktop View ******************************************/
+@media (min-width: 768px) {
+  body {
+    width: 70%;
+  }
 
-.add-score-section h2 {
-  margin-bottom: 50px;
-}
+  #date-time {
+    float: right;
+    font-size: 25px;
+  }
 
-#message,
-input {
-  font-size: 20px;
-}
+  h1 {
+    font-size: 60px;
+  }
 
-input {
-  padding: 10px;
-}
+  .main-section {
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 50px 0 50px;
+    gap: 50px;
+    width: 900px;
+  }
 
-.add-btn {
-  width: 120px;
+  .list-score-section,
+  .add-score-section {
+    width: 600px;
+  }
+
+  h2 {
+    font-size: 35px;
+  }
+
+  form {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .list-heading h2 {
+    margin-right: 40px;
+  }
+
+  li,
+  .add-btn,
+  #refresh {
+    font-size: 30px;
+  }
+
+  #score-list li {
+    padding: 0 0 0 5px;
+  }
+
+  .add-score-section h2 {
+    margin-bottom: 50px;
+  }
+
+  #message,
+  input {
+    font-size: 20px;
+  }
 }
