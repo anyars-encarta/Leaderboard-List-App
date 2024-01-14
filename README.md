@@ -39,7 +39,7 @@
 <!-- INTRO -->
 # 📖 Leaderboard List App <a name="about-project"></a>
 
-> This is a Leaderboard List App project to display scores of players. The added scores are
+> This is a Leaderboard List App project to display scores of players. The added scores are saved
 
 ## 🛠 Built With <a name="built-with"></a>
 1. HTML
