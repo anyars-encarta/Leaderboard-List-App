@@ -39,7 +39,7 @@
 <!-- INTRO -->
 # 📖 Leaderboard List App <a name="about-project"></a>
 
-> This is a Leaderboard List App project to display scores of players. The added scores are saved to the https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/ engagement API. They are also preserved to the localStorage. On app launch, the saved scores are fetched from the engagement API.
+> This is a Leaderboard List App project to display scores of players. The added scores are saved to the [Cloud Functions Engagement API](https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/). They are also preserved to the localStorage. On app launch, the saved scores are fetched from the engagement API.
 
 ## 🛠 Built With <a name="built-with"></a>
 1. HTML
